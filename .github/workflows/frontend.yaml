@@ -45,10 +45,10 @@ jobs:
       force: ${{ steps.force.outputs.force }}
 
     steps:
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # pin@v6.0.2
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # pin@v7.0.1
         with:
           persist-credentials: false
-      - uses: dorny/paths-filter@fbd0ab8f3e69293af611ebaee6363fc25e6d187d # pin@v4.0.1
+      - uses: dorny/paths-filter@ceb8a2b8f2d89434be7ff52d3de7ec3738c5cc9d # pin@v4.0.3
         id: filter
         with:
           filters: |
@@ -68,7 +68,7 @@ jobs:
     timeout-minutes: 60
 
     steps:
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # pin@v6.0.2
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # pin@v7.0.1
         with:
           persist-credentials: false
       - name: Environment Setup
@@ -122,7 +122,7 @@ jobs:
       VITE_COVERAGE: false
 
     steps:
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # pin@v6.0.2
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # pin@v7.0.1
         with:
           persist-credentials: false
       - name: Environment Setup
@@ -140,7 +140,7 @@ jobs:
       - name: Install dependencies
         run: invoke int.frontend-compile --extract
       - name: Cache Playwright browsers
-        uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # pin@v5.0.5
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # pin@v6.1.0
         id: playwright-cache
         with:
           path: ~/.cache/ms-playwright
@@ -201,7 +201,7 @@ jobs:
       VITE_COVERAGE: true
 
     steps:
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # pin@v6.0.2
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # pin@v7.0.1
         with:
           persist-credentials: false
       - name: Environment Setup
@@ -219,7 +219,7 @@ jobs:
       - name: Install dependencies
         run: invoke int.frontend-compile --extract
       - name: Cache Playwright browsers
-        uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # pin@v5.0.5
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # pin@v6.1.0
         id: playwright-cache
         with:
           path: ~/.cache/ms-playwright
@@ -269,7 +269,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # pin@v6.0.2
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # pin@v7.0.1
         with:
           persist-credentials: false
 
@@ -300,7 +300,7 @@ jobs:
 
       - name: Upload coverage reports to Codecov
         if: ${{ !cancelled() && github.ref == 'refs/heads/master' }}
-        uses: codecov/codecov-action@e79a6962e0d4c0c17b229090214935d2e33f8354 # pin@v6.0.1
+        uses: codecov/codecov-action@fb8b3582c8e4def4969c97caa2f19720cb33a72f # pin@v7.0.0
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           slug: inventree/InvenTree
